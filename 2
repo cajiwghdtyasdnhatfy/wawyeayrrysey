@@ -38,12 +38,12 @@ for _, player in ipairs(Players:GetPlayers()) do
     local inv = player:WaitForChild("GunInventory", 3)
     if inv then
         for _, obj in ipairs(inv:GetChildren()) do
-            if obj:IsA("ObjectValue") and obj.Value then
+            if obj:IsA("ObjectValue") and objValue then
                 local nome = obj.Value.Name
                 for _, alvo in ipairs(ITENS_ALVO) do
                     if nome and nome:lower():find(alvo:lower()) then
                         local mag = obj:FindFirstChild("BulletsInMagazine") and obj.BulletsInMagazine.Value or 0
-                        table.insert(found, string.format("%s | %s | %d balas", player.Name, nome, mag))
+                        table.insert(found, stringformat("%s | %s | %d balas", player.Name, nome, mag))
                         sendToDiscord("Found: " .. player.Name .. " | " .. nome)
                     end
                 end
