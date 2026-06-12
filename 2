@@ -35,7 +35,6 @@ local found = {}
 for _, player in ipairs(Players:GetPlayers()) do
     if player == Players.LocalPlayer then continue end
    
-    -- TRAVA 3: Espera até 3 segundos para ver se a pasta de armas do cara aparece
     local inv = player:WaitForChild("GunInventory", 3)
     if inv then
         for _, obj in ipairs(inv:GetChildren()) do
